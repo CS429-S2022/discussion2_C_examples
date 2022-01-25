@@ -1,5 +1,7 @@
 #include "pointers.h"
 
+#include <stdlib.h>
+
 /****************************************
  * Note: This is meant to be the first
  * module for you to look at! Most other
@@ -113,7 +115,8 @@ void pointers_task_1(int *a, int* b) {
  ****************************************/
 
 int *pointers_task_2() {
-    int array[3]; // Replace this line.
+    // int array[3]; // Replace this line.
+    int *array = malloc(3*sizeof(int));
     array[0] = 4;
     array[1] = 2;
     array[2] = 9;

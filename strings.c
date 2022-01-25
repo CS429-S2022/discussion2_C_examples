@@ -1,6 +1,7 @@
+#include "string.h"
+
 #include <string.h>
 #include <stdlib.h>
-#include "string.h"
 
 /****************************************
  * This series of tasks is meant to

@@ -1,7 +1,15 @@
+#ifdef POINTERS
 #include "pointers.h"
+#endif
+#ifdef STRINGS
 #include "strings.h"
+#endif
+#ifdef FUNCTIONS
 #include "functions.h"
+#endif
+#ifdef DATA_STRUCTURES
 #include "data_structures.h"
+#endif
 
 #include <stdio.h>
 #include <string.h>
@@ -49,6 +57,7 @@ static int pointer_tests() {
     }
     if(child == 0) {
         if (answer[0] == 4 && answer[1] == 2 && answer[2] == 9){
+            free(answer);
             exit(0);
         }
         exit(1);
@@ -57,10 +66,12 @@ static int pointer_tests() {
         waitpid(child, &child_status, 0);
         if(!child_status) {
             printf("Passed pointers task 2\n");
+            free(answer);
             tests_passed += 1;
         }
         else if(child_status == 1){
             printf("Failed pointers task 2\n\tYour output: [%d, %d, %d]\n\tCorrect output: [4, 2, 9]\n", answer[0], answer[1], answer[2]);
+            free(answer);
         }
         else {
             printf("Failed pointers task 2\n\tYour output: Segmentation Fault\n\tCorrect output: [4, 2, 9]\n");
@@ -150,6 +161,8 @@ int main(int argc, char **argv) {
 
     int tests_passed = 0;
     int total_tests = 0;
+    
+    #ifdef POINTERS
     int run_examples = 0;
     int flag;
 
@@ -161,7 +174,6 @@ int main(int argc, char **argv) {
         }
     }
 
-    #ifdef POINTERS
     if(run_examples) {
         int a = 10, b = 2;
         printf("Pointer example:\n\tInitial numbers:%d, %d\n", a, b);

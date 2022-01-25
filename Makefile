@@ -24,19 +24,19 @@ all:
 	./runner
 
 pointers:
-	$(CC) $(CFLAGS) -DPOINTERS $(DEPS)
+	$(CC) $(CFLAGS) -DPOINTERS main.c pointers.c
 	./runner
 
 strings:
-	$(CC) $(CFLAGS) -DSTRINGS $(DEPS)
+	$(CC) $(CFLAGS) -DSTRINGS main.c strings.c
 	./runner
 
 functions:
-	$(CC) $(CFLAGS) -DFUNCTIONS $(DEPS)
+	$(CC) $(CFLAGS) -DFUNCTIONS main.c functions.c
 	./runner
 
 data_structures:
-	$(CC) $(CFLAGS) -DDATA_STRUCTURES $(DEPS)
+	$(CC) $(CFLAGS) -DDATA_STRUCTURES main.c data_structures.c
 	./runner
 
 # Finally, this target is just used to remove 
